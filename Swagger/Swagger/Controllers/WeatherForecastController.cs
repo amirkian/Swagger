@@ -33,39 +33,8 @@ namespace Swagger.Controllers
 
     }
 
-    public class PolymorphismController : ControllerBase
-    {
-        [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<DynamicType>), StatusCodes.Status200OK)]
-        public IEnumerable<DynamicType> Get()
-        {
-            return Enumerable.Range(1, 5).Select(index => {
-                if (index % 2 == 0)
-                {
-                    return new DynamicType<string>()
-                    {
-                        DataType = "string",
-                        Value = "This is my string value"
-                    } as DynamicType;
-                }
-                return new DynamicType<decimal?>()
-                {
-                    DataType = "number",
-                    Value = new decimal?(99.0m)
-                } as DynamicType;
-            })
-            .ToArray();
-        }
-    }
+
 }
 
 
-public class DynamicType
-    {
-        public string DataType { get; set; }
-    }
 
-    public class DynamicType<T> : DynamicType
-    {
-        public T Value { get; set; }
-    }
