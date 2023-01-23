@@ -37,12 +37,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger(options =>
 
     {
-        options.RouteTemplate = "docs/v1/docs.json";
+        
     });
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("docs/v1/docs.json", "My API V1");
-        //options.RoutePrefix = "docs";
+        
     });
 }
 
